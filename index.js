@@ -15,6 +15,7 @@ cloudinary.config({
 });
 
 
+
 const Note = mongoose.model("Note", {
     title: String,
     date: String,
@@ -71,7 +72,7 @@ const resolvers = {
             await note.save();
             const imagePath = Image;
             if (imagePath !== null) {
-                cloudinary.uploader.upload(imagePath, { tags: 'note taking app', public_id: 'acit_3695' });
+                cloudinary.uploader.upload(imagePath, { tags: 'note taking app', public_id: title + Image });
             };
             return note;
         },
@@ -81,6 +82,7 @@ const resolvers = {
         },
         addImage: async (_, { id, Image }) => {
             await Note.findByIdAndUpdate(id, { Image: Image });
+            cloudinary.uploader.upload(Image, { tags: 'note taking app', public_id: id + Image });
             return "Added Image";
         }
     }
