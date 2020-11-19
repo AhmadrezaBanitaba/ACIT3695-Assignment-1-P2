@@ -2,7 +2,7 @@ const { GraphQLServer } = require('graphql-yoga')
 const mongoose = require('mongoose');
 var cloudinary = require('cloudinary').v2;
 
-mongoose.connect('mongodb+srv://xxxxx:acit3695@xxxxx.xxxxx.mongodb.net/graphqlNotes?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://acit3695:acit3695@graphql-api.6krsq.mongodb.net/graphqlNotes?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
